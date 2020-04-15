@@ -4,7 +4,9 @@ Puppet::Type.newtype(:docker_compose) do
   @doc = 'A type representing a Docker Compose file'
 
   ensurable
-
+  newparam(:service_name) do
+    desc 'This specify the name of the service, the values are fatched from the underlay'
+  end
   def refresh
     provider.restart
   end
