@@ -14,7 +14,7 @@ Puppet::Type.type(:docker_compose).provide(:ruby) do
     compose_services = {}
     compose_containers = []
     resource[:compose_files].each do |file|
-      compose_file = YAML.safe_load(File.read(file), [], [], true)
+      compose_file = YAML.safe_load(File.read(file))
       # rubocop:disable Style/StringLiterals
       containers = docker([
                             'ps',
