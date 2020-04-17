@@ -61,7 +61,7 @@ define docker::registry(
     $exec_provider = undef
     $password_env = "\${password}"
     $exec_user = $local_user
-    $local_user_home = $facts['docker_home_dirs'][$local_user]
+#    $local_user_home = $facts['docker_home_dirs'][$local_user]
   }
 
   if $ensure == 'present' {
@@ -86,7 +86,7 @@ define docker::registry(
   $docker_auth = "${title}${auth_environment}${auth_cmd}${local_user}"
 
   if $auth_environment != '' {
-    $exec_env = concat($exec_environment, $auth_environment, "docker_auth=${docker_auth}")
+#    $exec_env = concat($exec_environment, $auth_environment, "docker_auth=${docker_auth}")
   } else {
     $exec_env = concat($exec_environment, "docker_auth=${docker_auth}")
   }
